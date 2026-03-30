@@ -1,0 +1,269 @@
+.appointment-title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.appointment-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap; /* Wrap nicely on smaller screens */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Equal width */
+  min-width: 200px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: #34495e;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 0 3px rgba(37,117,252,0.15);
+}
+
+.btn-submit {
+  padding: 0.65rem 1.4rem;
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.2s;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+.appointment-item {
+  background: #fff;
+ 
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-size: 0.9rem;
+  
+}
+
+.appointment-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.appointment-text {
+  margin: 0 0 6px;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.appointment-text strong {
+  color: #2575fc;
+}
+
+.status-message {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+
+.badge-requested {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge-confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge-completed {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.badge-cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.no-appointments {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  margin-top: 1rem;
+}
+.appointment-text {
+  font-size: 0.95rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}.appointment-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.appointment-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.doctor-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2575fc;
+  margin-bottom: 4px;
+}
+
+.appointment-text {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.status-box {
+  text-align: right;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.badge-requested {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge-confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge-completed {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.badge-cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+.badge-rescheduled {
+  background: #fff3cd;
+  color: #01493d;
+}
+
+.status-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+}
+
+.no-appointments {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+}
+.appointment-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 12px; /* Even spacing between buttons */
+  margin-top: 14px;
+  flex-wrap: wrap; /* Ensure they don't overflow on small screens */
+}
+
+.btn-action {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  min-width: 110px; /* Keeps both buttons the same width */
+  text-align: center;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-reschedule {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: #fff;
+}
+
+.btn-cancel {
+  background: linear-gradient(135deg, #f44336, #e53935);
+  color: #fff;
+}
+.btn-complete {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: #fff;
+}

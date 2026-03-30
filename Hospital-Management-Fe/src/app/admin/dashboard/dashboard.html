@@ -1,0 +1,118 @@
+<div class="main-dashboard-container">
+  <div class="dashboard-content">
+    <div class="section">
+      <h2 class="section-title">
+        <i class="fas fa-calendar-check"></i>
+        <span>Appointment Statuses</span>
+      </h2>
+      <div class="status-grid">
+        <div class="status-card requested">
+          <i class="fas fa-calendar-plus status-icon"></i>
+          <span class="status-label">Requested</span>
+          <span class="status-value">{{ DashboardData.totalAppointments?.requested }}</span>
+        </div>
+        <div class="status-card confirmed">
+          <i class="fas fa-check-circle status-icon"></i>
+          <span class="status-label">Confirmed</span>
+          <span class="status-value">{{ DashboardData.totalAppointments?.confirmed }}</span>
+        </div>
+        <div class="status-card completed">
+          <i class="fas fa-clipboard-check status-icon"></i>
+          <span class="status-label">Completed</span>
+          <span class="status-value">{{ DashboardData.totalAppointments?.completed }}</span>
+        </div>
+        <div class="status-card cancelled">
+          <i class="fas fa-times-circle status-icon"></i>
+          <span class="status-label">Cancelled</span>
+          <span class="status-value">{{ DashboardData.totalAppointments?.cancelled }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h2 class="section-title">
+        <i class="fas fa-chart-line"></i>
+        <span>Key Statistics</span>
+      </h2>
+      <div class="stats-grid">
+          <div class="stat-card total-doctors">
+            <div class="card-content">
+              <i class="fas fa-user-md icon"></i>
+              <div class="details">
+                <span class="label">Total Doctors</span>
+                <span class="value">{{ DashboardData.totalDoctors }}</span>
+                <span class="trend">
+                  <i class="fas fa-arrow-up"></i> 
+                  {{ DashboardData.newDoctorsThisMonth }} new this month
+                </span>
+              </div>
+            </div>
+          </div>
+
+        <div class="stat-card total-patients">
+          <div class="card-content">
+            <i class="fas fa-users icon"></i>
+            <div class="details">
+              <span class="label">Total Patients</span>
+              <span class="value">{{ DashboardData.totalPatients }}</span>
+              <span class="trend">
+                <i class="fas fa-arrow-up"></i> 
+                {{ DashboardData.newPatientsThisMonth }} new this month
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card total-appointments">
+          <div class="card-content">
+            <i class="fas fa-calendar-alt icon"></i>
+            <div class="details">
+              <span class="label">Total Appointments</span>
+              <span class="value">{{ DashboardData.totalAppointments.total ? DashboardData.totalAppointments.total : 0  }}</span>
+              <span class="trend">
+                <i class="fas fa-arrow-up"></i> 
+                {{ DashboardData.appointmentsThisWeek }} this week
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card total-revenue">
+          <div class="card-content">
+            <i class="fas fa-dollar-sign icon"></i>
+            <div class="details">
+              <span class="label">Total Revenue</span>
+              <span class="value">{{ DashboardData.totalRevenue ? DashboardData.totalRevenue : 0}}</span>
+              <span class="trend">
+                <i class="fas fa-arrow-up"></i> 
+                ${{ DashboardData.revenueThisMonth }} this month
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2 class="section-title">
+        <i class="fas fa-chart-bar"></i>
+        <span>Detailed Analytics</span>
+      </h2>
+      <div class="analytics-charts">
+        <div class="chart-container">
+          <h4>Patient Registrations (Last 6 Months)</h4>
+          <canvas id="patient-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h4>Appointments by Department</h4>
+          <canvas id="department-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading" id="loading-spinner" class="spinner-overlay">
+  <div class="spinner"></div>
+  <p class="loading-text">Loading Hospital Data...</p>
+</div>

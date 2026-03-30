@@ -1,0 +1,39 @@
+<div class="landing-page">
+  <!-- Left Section -->
+  <div class="intro-card shadow-lg">
+    <h1 class="title">🏥 Hospital Management System</h1>
+    <p class="subtitle">
+      Streamline patient care, manage appointments, and empower healthcare
+      professionals with our all-in-one solution.
+    </p>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">👨‍⚕️</div>
+        <h3>Doctor Management</h3>
+        <p>Manage doctor schedules, specialties, and availability with ease.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🧑‍🤝‍🧑</div>
+        <h3>Patient Care</h3>
+        <p>Keep patient records, medical history, and treatment plans secure.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📅</div>
+        <h3>Appointments</h3>
+        <p>Book, reschedule, and cancel appointments effortlessly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <div class="auth-card">
+    <div class="auth-buttons">
+      <a routerLink="/login" class="btn login-btn">Login</a>
+      <a routerLink="/register" class="btn register-btn">Register</a>
+    </div>
+    <div class="auth-info">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

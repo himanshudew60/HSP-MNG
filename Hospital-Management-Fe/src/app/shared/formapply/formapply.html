@@ -1,0 +1,59 @@
+<div class="container py-2">
+
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <a routerLink="/patient/dashboard" class="text-decoration-none">
+      <button class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+    </a>
+    <h3 class="fw-bold text-primary m-0">Complete Your Profile</h3>
+    <div></div> <!-- Keeps heading centered -->
+  </div>
+
+  <!-- Profile Form -->
+  <form (ngSubmit)="onSubmit()" class="mt-2">
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let field of patientFields">
+        <div>
+          <label class="form-label fw-semibold">{{ field.label }}</label>
+
+          <!-- Normal Inputs -->
+          <input *ngIf="field.inputType !== 'select' && field.inputType !== 'file'" 
+                 [type]="field.inputType" 
+                 class="form-control border-primary-subtle" 
+                 [name]="field.fieldName" 
+                 placeholder="Enter {{ field.label }}" 
+                 [(ngModel)]="field.value" 
+                 required>
+
+          <!-- Select Dropdown -->
+          <select *ngIf="field.inputType === 'select'" 
+                  class="form-select border-primary-subtle"
+                  [name]="field.fieldName" 
+                  [(ngModel)]="field.value" 
+                  required>
+            <option value="">-- Select {{ field.label }} --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
+          <!-- File Upload -->
+          <input *ngIf="field.inputType === 'file'" 
+                 type="file" 
+                 class="form-control border-primary-subtle" 
+                 [name]="field.fieldName" 
+                 (change)="onFileSelect($event, field)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-end mt-4">
+      <button type="submit" class="btn btn-primary px-4">
+        <i class="bi bi-save"></i> Save
+      </button>
+    </div>
+  </form>
+</div>

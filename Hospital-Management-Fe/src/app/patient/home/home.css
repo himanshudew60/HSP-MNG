@@ -1,0 +1,120 @@
+/* Page layout */
+.landing-page {
+  display: flex;
+  flex-direction: column;   /* stack navbar + content vertically */
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+
+  /* Background with depth */
+  background: 
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.15), transparent 60%),
+    linear-gradient(135deg, #a551ff, #8eb7ff, #2effb9);
+  
+  font-family: "Segoe UI", sans-serif;
+  color: #2c3e50;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-center {
+  flex: 1; /* pushes it to center */
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.navbar-right button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navbar-right button:hover {
+  background: #e60000;
+}
+
+.navbar-left .logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.navbar-links a.active,
+.navbar-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-right button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navbar-right button:hover {
+  background: #e60000;
+}
+
+/* Welcome message */
+.welcome-message {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+}
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  margin-left: 0.5rem;  /* space between buttons */
+}
+
+.navbar-links a.active,
+.navbar-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.content{
+  background-color: aliceblue;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+}

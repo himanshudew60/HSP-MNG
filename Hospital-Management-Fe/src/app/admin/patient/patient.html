@@ -1,0 +1,28 @@
+<div class="patient-header">
+  <h2>🧑‍🦽 Patient Management</h2>
+  <a class="btn btn-primary" routerLink="/admin/create/1">+ Create Patient</a>
+</div>
+
+<div id="patient-list" class="patient-list">
+  <ul>
+    @for (patient of patients; track patient.id) {
+      <li class="patient-card">
+        <div class="patient-info">
+          <div class="avatar">
+            {{ patient.name.charAt(0) }}
+          </div>
+          <div>
+            <h3>{{ patient.name }}</h3>
+            <p>{{ patient.email }}</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-sm btn-warning" [routerLink]="['/admin/edit', patient.id, patient.role]">✏️ Edit</a>
+          <button class="btn btn-sm btn-danger" (click)="deletePatient(patient.id)">🗑️ Delete</button>
+        </div>
+      </li>
+    } @empty {
+      <li class="empty">🚫 No patients found.</li>
+    }
+  </ul>
+</div>

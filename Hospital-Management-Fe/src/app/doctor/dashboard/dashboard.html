@@ -1,0 +1,58 @@
+<h5 class="appointment-title">📋 My Patients’ Appointments</h5>
+
+<div *ngIf="doctorAppointments.length > 0; else noAppointments">
+  @for (appt of doctorAppointments; track appt.id) {
+    <div class="appointment-item">
+      <div>
+        <p class="appointment-text">
+          🧑‍⚕️ Appointment with <strong>{{ appt.patient_name }}</strong><br />
+          📆 On <strong>{{ appt.appointment_time | date:'fullDate' }}</strong>
+          at <strong>{{ appt.appointment_time | date:'shortTime' }}</strong>
+        </p>
+
+        <p class="status-message">
+          <ng-container *ngIf="appt.status == 0">
+            <span class="badge badge-requested">🕒 Requested</span>
+            Waiting for your confirmation.
+          </ng-container>
+          <ng-container *ngIf="appt.status == 1">
+            <span class="badge badge-confirmed">✅ Confirmed</span>
+            Appointment confirmed.
+          </ng-container>
+          <ng-container *ngIf="appt.status == 2">
+            <span class="badge badge-completed">🎉 Completed</span>
+            Successfully completed.
+          </ng-container>
+          <ng-container *ngIf="appt.status == 3">
+            <span class="badge badge-cancelled">❌ Cancelled</span>
+            Appointment cancelled.
+          </ng-container>
+          <ng-container *ngIf="appt.status == 4">
+            <span class="badge badge-rescheduled">🔄 Rescheduled</span>
+            Appointment rescheduled.
+          </ng-container>
+        </p>
+      </div>
+
+      <!-- Doctor Actions -->
+      <div class="appointment-actions" *ngIf="appt.status == 0 || appt.status == 1 || appt.status == 4">
+        <button (click)="updateStatus(appt.id, 1, 'Confirmed')" class="btn-action btn-reschedule">
+          ✅ Confirm
+        </button>
+        <button (click)="reschedule(appt.id, appt.appointment_time)" class="btn-action btn-reschedule">
+          🔄 Reschedule
+        </button>
+        <button (click)="updateStatus(appt.id, 3, 'Cancelled')" class="btn-action btn-cancel">
+          ❌ Cancel
+        </button>
+        <button (click)="updateStatus(appt.id, 2, 'Completed')" class="btn-action btn-complete">
+          🎉 Complete
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+<ng-template #noAppointments>
+  <p class="no-appointments">❌ No appointments assigned yet.</p>
+</ng-template>

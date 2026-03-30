@@ -1,0 +1,27 @@
+
+  <h3>✨ Create Account</h3>
+  <p class="form-subtitle">Join our Hospital Management System</p>
+
+  <form>
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" name="name" [(ngModel)]="registerData.name" class="form-control" placeholder="Enter your full name" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" name="email" [(ngModel)]="registerData.email" class="form-control" placeholder="Enter your email" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" [(ngModel)]="registerData.password" class="form-control" placeholder="Create a password" required />
+    </div>
+
+    <button (click)="onSubmit()" type="submit" class="btn btn-success w-100">Register</button>
+  </form>
+
+  <p class="switch-text mt-2">
+    Already have an account?
+    <a routerLink="login">Login</a>
+  </p>

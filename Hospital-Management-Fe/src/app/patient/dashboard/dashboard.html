@@ -1,0 +1,91 @@
+<h5 class="appointment-title">📅 Book Appointment</h5>
+
+<form class="appointment-form" (ngSubmit)="submit()" #appointmentForm="ngForm">
+  <!-- Doctor -->
+  <div class="form-group">
+    <label for="doctor">👨‍⚕️ Select Doctor</label>
+    <select id="doctor" name="doctor" [(ngModel)]="appointmentData.doctor_id" required>
+      <option value="" disabled selected>-- Choose a Doctor --</option>
+      @for (doctor of doctors; track doctor.id) {
+      <option [value]="doctor.id">{{ doctor.name }}</option>
+      }
+    </select>
+  </div>
+
+  <!-- Date -->
+  <div class="form-group">
+    <label for="date">📆 Appointment Date & Time</label>
+    <input type="datetime-local" id="date" name="appointment_time" [(ngModel)]="appointmentData.appointment_time"
+      required />
+  </div>
+
+  <!-- Button -->
+  <button type="submit" class="btn-submit" [disabled]="!appointmentForm.form.valid">
+    ✅ Book Now
+  </button>
+</form>
+
+<hr />
+
+<h5 class="appointment-title">📋 My Appointments</h5>
+
+<div *ngIf="patientAppointment.length > 0; else noAppointments">
+  @for (appt of patientAppointment; track appt.id) {
+  <div class="appointment-item">
+    <div>
+      <p class="appointment-text">
+        📝 Your appointment with
+        <strong>Dr. {{ appt.doctor_name }}</strong>
+        is on
+        <strong>{{ appt.appointment_time | date:'fullDate' }}</strong>
+        at <strong>{{ appt.appointment_time | date:'shortTime' }}</strong>.
+      </p>
+
+      <p class="status-message">
+        <ng-container *ngIf="appt.status == 0">
+          <span class="badge badge-requested">🕒 Requested</span>
+          Waiting for confirmation.
+        </ng-container>
+        <ng-container *ngIf="appt.status == 1">
+          <span class="badge badge-confirmed">✅ Confirmed</span>
+          Please arrive on time.
+        </ng-container>
+        <ng-container *ngIf="appt.status == 2">
+          <span class="badge badge-completed">🎉 Completed</span>
+          Thank you for visiting.
+        </ng-container>
+        <ng-container *ngIf="appt.status == 3">
+          <span class="badge badge-cancelled">❌ Cancelled</span>
+          Contact support for help.
+        </ng-container>
+        <ng-container *ngIf="appt.status == 4">
+          <span class="badge badge-rescheduled">🔄 Rescheduled</span>
+          Your appointment has been rescheduled.
+        </ng-container>
+      </p>
+    </div>
+    <!-- Action Buttons -->
+    <div class="appointment-actions" *ngIf="appt.status == 0 || appt.status == 1 || appt.status == 4">
+      <button (click)="rescheduleAppointment(appt.id, appt.appointment_time)" class="btn-action btn-reschedule">
+        🔄 Reschedule
+      </button>
+
+
+      <button (click)="cancelAppointment(appt.id)" class="btn-action btn-cancel">
+        ❌ Cancel
+      </button>
+    </div>
+    <div class="appointment-actions" *ngIf="appt.status == 2">
+      <button class="btn-action btn-view-prescription">
+        📄 View Prescription
+      </button>
+    </div>
+
+  </div>
+
+  }
+</div>
+
+<ng-template #noAppointments>
+  <p class="no-appointments">❌ You don’t have any appointments yet.</p>
+</ng-template>

@@ -1,0 +1,39 @@
+<div class="landing-page">
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Left side -->
+    <div class="navbar-left">
+      <div class="logo">🏥 HMS</div>
+      <div class="navbar-links">
+        <a routerLink="dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Dashboard
+        </a>
+        <a routerLink="doctor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Doctor
+        </a>
+        <a routerLink="patient" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Patient
+        </a>
+        <a routerLink="appointments" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Appointments
+        </a>
+      </div>
+    </div>
+
+    <!-- Center title -->
+    <div class="navbar-center">
+      <h3>Admin Dashboard</h3>
+    </div>
+ 
+
+    <!-- Right side -->
+    <div class="navbar-right">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<h3 class="mb-2">✨ Login to Your Account</h3>
+<p class="form-subtitle mb-4">Join our Hospital Management System</p>
+
+<form>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="LoginData.email"
+      class="form-control"
+      placeholder="Enter your email"
+      required
+    />
+  </div>
+
+  <div class="mb-2">
+    <label class="form-label">Password</label>
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="LoginData.password"
+      class="form-control"
+      placeholder="Enter your password"
+      required
+    />
+  </div>
+
+  <!-- Forgot Password under password field -->
+  <div class="text-end mb-2">
+    <a routerLink="/forgot-password" class="text-decoration-none small">
+      Forgot Password?
+    </a>
+  </div>
+
+  <button (click)="onSubmit()" type="submit" class="btn btn-success w-100">
+    Login
+  </button>
+</form>
+
+<!-- Register link -->
+<p class="switch-text text-center mt-3">
+  Don't have an account?
+  <a routerLink="/register" class="fw-bold">Register</a>
+</p>

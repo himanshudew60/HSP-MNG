@@ -1,0 +1,80 @@
+<div class="edit-wrapper">
+  <div class="edit-header">
+    <h3>
+      ✏️ Edit 
+      <span class="role-label">
+        @if(userRole==='1'){ Patient } @else { Doctor }
+      </span>
+    </h3>
+
+    @if(userRole === '2') {
+      <a class="btn-back" routerLink="/admin/doctor">⬅ Back to Doctors</a>
+    } @else {
+      <a class="btn-back" routerLink="/admin/patient">⬅ Back to Patients</a>
+    }
+  </div>
+
+  <form (ngSubmit)="saveUser()" #editForm="ngForm" class="edit-form">
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        [(ngModel)]="userData.name"
+        placeholder="Enter full name"
+        required
+      >
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="userData.email"
+        placeholder="Enter email"
+        required
+      >
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">New Password</label>
+      <input
+        id="password"
+        type="text"
+        name="password"
+        [(ngModel)]="userData.password"
+        placeholder="Enter new password"
+        minlength="6"
+      >
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        id="confirmPassword"
+        type="text"
+        name="confirmPassword"
+        [(ngModel)]="userData.confirmPassword"
+        placeholder="Re-enter new password"
+        [pattern]="userData.password"
+      >
+    </div>
+
+    <!-- Save Button -->
+    <div class="actions">
+      <button 
+        type="submit" 
+        class="btn-save" 
+        [disabled]="!editForm.form.valid">
+        💾 Save Changes
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="doctor-header">
+  <h2>👨‍⚕️ Doctor Management</h2>
+  <a class="btn btn-primary" routerLink="/admin/create/2">+ Create Doctor</a>
+</div>
+
+<div id="doctor-list" class="doctor-list">
+  <ul>
+    @for (doctor of doctors; track doctor.id) {
+      <li class="doctor-card">
+        <div class="doctor-info">
+          <div class="avatar">
+            {{ doctor.name.charAt(0) }}
+          </div>
+          <div>
+            <h3>{{ doctor.name }}</h3>
+            <p>{{ doctor.email }}</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-sm btn-warning" [routerLink]="['/admin/edit', doctor.id, doctor.role]">✏️ Edit</a>
+          <button class="btn btn-sm btn-danger" (click)="deleteDoctor(doctor.id)">🗑️ Delete</button>
+        </div>
+      </li>
+    } @empty {
+      <li class="empty">🚫 No doctors found.</li>
+    }
+  </ul>
+</div>

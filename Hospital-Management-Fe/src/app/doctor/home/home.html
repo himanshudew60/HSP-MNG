@@ -1,0 +1,32 @@
+<div class="landing-page">
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Left side -->
+    <div class="navbar-left">
+      <div class="logo">🏥 HMS</div>
+      <div class="navbar-links">
+        <a 
+          routerLink="dashboard" 
+          routerLinkActive="active" 
+          [routerLinkActiveOptions]="{ exact: true }">
+          Dashboard
+        </a>
+      </div>
+    </div>
+
+    <!-- Center welcome message -->
+    <div class="navbar-center">
+      Welcome Dr. {{ doctorName }}
+    </div>
+
+    <!-- Right side -->
+    <div class="navbar-right">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Content below navbar -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

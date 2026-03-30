@@ -1,0 +1,158 @@
+/* Background */
+.landing-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+
+  /* Combine linear + radial for depth */
+  background: 
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.15), transparent 60%),
+    linear-gradient(135deg, #a551ff, #8eb7ff, #2effb9);
+  
+  font-family: "Segoe UI", sans-serif;
+  color: #2c3e50;
+}
+
+/* Left Section */
+.intro-card {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  padding: 2.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a237e;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Features */
+.features {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  flex: 1;
+  min-width: 200px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  background: linear-gradient(135deg, #bbdefb, #c8e6c9);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+  animation: bounce 2s infinite;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Right Section */
+.auth-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  animation: slideIn 1s ease;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.7rem 1.8rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+  color: #fff;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.95;
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .landing-page {
+    flex-direction: column;
+    padding: 1.2rem;
+  }
+  .features {
+    flex-direction: column;
+  }
+}
