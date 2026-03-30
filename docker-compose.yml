@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./Hospital-Management-Be
+    container_name: laravel_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Hospital-Management-Be:/var/www
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./Hospital-Management-Fe
+    container_name: angular_frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./Hospital-Management-Fe:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: hospital_db
+      MYSQL_USER: hospital_user
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
